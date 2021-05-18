@@ -6,12 +6,13 @@ const gitQuery = {
                     name
                     bio
                     avatarUrl
-                    repositories(first: 2, orderBy: {field: CREATED_AT, direction: DESC}) {
-                    nodes {
-                        id
-                        name
-                        description
-                    }
+                    repositories(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
+                        nodes {
+                            id
+                            name
+                            description
+                            url
+                        }
                     }
                 }
             }
