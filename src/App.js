@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import github from "./db";
 import query from "./Query";
 import RepoInfo from "./RepoInfo";
+import SearchBox from "./SearchBox";
 
 function App() {
   let [userName, setUserName] = useState("");
@@ -47,6 +48,17 @@ function App() {
         <b>Search for:</b> {queryString} | <b>Items per Page:</b> {pageCount} |{" "}
         <b>Total Items:</b> {totalCount}
       </p>
+      <SearchBox
+        totalCount={totalCount}
+        pageCount={pageCount}
+        queryString={queryString}
+        onQueryChange={(q) => {
+          setQueryString(q);
+        }}
+        onTotalChange={(num) => {
+          setPageCount(num);
+        }}
+      />
 
       {repoList && (
         <ul className="list-group list-group-flush">
