@@ -1,22 +1,21 @@
 const gitQuery = {
-            query: `
-            {
-                viewer {
-                    login
-                    name
-                    bio
-                    avatarUrl
-                    repositories(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
-                        nodes {
-                            id
-                            name
-                            description
-                            url
-                        }
-                    }
-                }
+    query: `
+            { 
+              viewer { 
+                login
+              }
+              search(query: "user:inderpreet sort:updated-desc", type: REPOSITORY, first:10) {
+                nodes{
+                  ... on Repository {
+                  name
+                  description
+                  id
+                  url
+                  }
+                }    
+              }
             }
             `,
-        };
+};
 
 export default gitQuery;
