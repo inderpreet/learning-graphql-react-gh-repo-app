@@ -1,10 +1,12 @@
-const gitQuery = {
-  query: `
-            { 
-              viewer { 
+const githubQuery = (pageCount, queryString) => {
+  return {
+    query: `
+            {
+              viewer {
                 login
               }
-              search(query: "user:inderpreet sort:updated-desc", type: REPOSITORY, first:20) {
+              search(query: "${queryString} user:inderpreet sort:updated-desc", type: REPOSITORY, first: ${pageCount}) {
+                repositoryCount
                 nodes{
                   ... on Repository {
                   name
@@ -16,10 +18,10 @@ const gitQuery = {
                     spdxId
                   }
                   }
-                }    
+                }
               }
             }
             `,
+  };
 };
-
-export default gitQuery;
+export default githubQuery;
