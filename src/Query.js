@@ -15,6 +15,7 @@ const gitQuery = {
                   licenseInfo{
                     spdxId
                   }
+                  }
                 }    
               }
             }
