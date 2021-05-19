@@ -11,6 +11,7 @@ const gitQuery = {
                   description
                   id
                   url
+                  viewerSubscription
                   }
                 }    
               }
